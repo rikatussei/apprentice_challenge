@@ -1,19 +1,19 @@
-FILE="passwords.txt"
+#!/bin/bash
 
+# パスワードマネージャーメッセージ
 echo "パスワードマネージャーへようこそ！"
 
-echo -n "サービス名を入力してください："
-read service_name
-
-echo -n "ユーザー名を入力してください："
-read user_name
-
-echo -n "パスワードを入力してください："
-read -s password
+# ユーザー入力の取得
+read -p "サービス名を入力してください: " service
+read -p "ユーザー名を入力してください: " username
+read -sp "パスワードを入力してください: " password
 echo
 
+# 入力内容の確認
 echo "Thank you!"
 
-echo "$service_name:$user_name:$password" >> $FILE
+# 入力内容をファイルに保存
+echo "$service:$username:$password" >> passwords.txt
 
+# 保存完了メッセージ
 echo "情報が保存されました。"
